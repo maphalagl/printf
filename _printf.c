@@ -9,36 +9,38 @@ int _printf(const char * const format, ...)
 	convert p[] = {
 		{"%s", print_string}, {"%c", print_char},
 		{"%%", print_27},
-		{"%i", print_integer}, {"%d", print_decimal}
+		{"%i", print_integer}, {"%d", print_decimal}, {"%r", print_revs},
+		{"%R", print_rot13}, {"%b", print_bin},
+		{"%u", print_unsigned},
+		{"%o", print_oct}, {"%x", print_hex}, {"%X", print_HEX},
+		{"%S", print_exc_string}, {"%p", print_pointer}
 	};
 
 	va_list args;
-	int l = 0; 
-	int g; 
-	int len = 0;
+	int i = 0, j, length = 0;
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
 Here:
-	while (format[l] != '\0')
+	while (format[i] != '\0')
 	{
-		g = 13;
-		while (g >= 0)
+		j = 13;
+		while (j >= 0)
 		{
-			if (p[g].ph[0] == format[l] && p[g].ph[1] == format[l + 1])
+			if (p[j].ph[0] == format[i] && p[j].ph[1] == format[i + 1])
 			{
-				len += p[g].funct(args);
-				l += 2;
+				length += p[j].funct(args);
+				i = i + 2;
 				goto Here;
 			}
-			g--;
+			j--;
 		}
-		_putchar(format[l]);
-		len++;
-		l++;
+		_putchar(format[i]);
+		length++;
+		i++;
 	}
 	va_end(args);
-	return (len);
+	return (length);
 }

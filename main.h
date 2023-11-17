@@ -28,4 +28,18 @@ int _strlenc(const char *str);
 int print_27(void);
 int print_decimal(va_list args);
 int print_integer(va_list args);
+int *_strcpy(char *dest, char *src);
+int print_pointer(va_list val);
+int print_unsigned(va_list args);
+int print_hex_extra(unsigned long int num);
+int print_exc_string(va_list val);
+int print_HEX(va_list val);
+int print_hex(va_list val);
+int print_oct(va_list val);
+int print_bin(va_list val);
+int print_revs(va_list args);
+int print_rot13(va_list args);
+int rev_string(char *s);
+int print_HEX_extra(unsigned int num);
+
 #endif
