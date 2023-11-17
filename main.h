@@ -27,5 +27,5 @@ int _strlen(char *str);
 int _strlenc(const char *str);
 int print_27(void);
 int print_decimal(va_list args);
-int print_integer(va_list args)
+int print_integer(va_list args);
 #endif

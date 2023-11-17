@@ -29,7 +29,7 @@ Here:
 		{
 			if (p[g].ph[0] == format[l] && p[g].ph[1] == format[l + 1])
 			{
-				len += p[g].function(args);
+				len += p[g].funct(args);
 				l += 2;
 				goto Here;
 			}

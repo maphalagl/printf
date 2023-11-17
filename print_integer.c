@@ -52,7 +52,7 @@ int print_integer(va_list args)
 int print_decimal(va_list args)
 {
 	int g = va_arg(args, int);
-	int nom, lst = n % 10, dig;
+	int nom, lst = g % 10, dig;
 	int  l = 1;
 	int ex = 1;
 
